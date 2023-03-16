@@ -20,3 +20,5 @@ print("number of characters: " + str(len(raw_text)))
 print("number of words split by spaces: " + str(len(split_tokens)))
 print("number of words split by nltk's tokenizer: " + str(len(raw_tokens)))
 print("num of unique words: " + str(len(unique_words)))
+
+nltk_text = nltk.Text(raw_tokens)
