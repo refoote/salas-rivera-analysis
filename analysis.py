@@ -29,8 +29,21 @@ nltk_text = nltk.Text(raw_tokens)
 def import_poem(filename):
     filename = "antes.txt"
     with open(filename, 'r') as fin:
-        raw_text = fin.readlines()
+        raw_text = fin.read()
     return raw_text
+
+def convert_raw_text_to_poems(raw_text):
+    """Take the raw_text and break it into poems"""
+    return raw_text.split('\n\n\n\n')
+
+def convert_poems_into_stanzas(list_of_poems):
+    poems_as_stanzas = [poem.split('\n\n\n') for poem in list_of_poems]
+    return poems_as_stanzas
+
+def convert_stanzas_into_lines(poems_as_stanzas):
+    lines = [stanza.split('\n\n') for stanzas in poems_as_stanzas for stanza in stanzas]
+    return lines
+
 
 def line_midpoint(line):
     """takes a line and divides it in half"""
@@ -78,6 +91,7 @@ def find_chiasmus_over_whole_collection(raw_text):
 # import your file using the import method
 # >>> import analysis
 # The functions you write will be under analysis - 
+# raw_text = analysis.import_poem(antes.txt)
 # >>> line_halves = analysis.line_midpoint(line)
 # if you change something, the terminal won't know about it. so you will need to reimport the library using importlib like so-
 # import importlib
