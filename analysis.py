@@ -1,5 +1,7 @@
 from curses import raw
 import nltk
+from nltk.corpus import stopwords
+from numpy import append
 # get your data 
 filename = "antes.txt"
 with open(filename, 'r') as fin:
@@ -24,10 +26,61 @@ print("num of unique words: " + str(len(unique_words)))
 
 nltk_text = nltk.Text(raw_tokens)
 
-def find_chiasmus(text):
+def import_poem(filename):
+    filename = "antes.txt"
+    with open(filename, 'r') as fin:
+        raw_text = fin.readlines()
+    return raw_text
+
+def line_midpoint(line):
+    """takes a line and divides it in half"""
+    line_as_tokens = nltk.word_tokenize(line)
+    length_of_line = len(line_as_tokens)
+    half = int(length_of_line / 2)
+    first_half = line_as_tokens[:half]
+    second_half = line_as_tokens[half:]
+
+    return (first_half, second_half)
+
+def find_chiasmus_in_line_using_simple_token_matching(two_halves):
+    """Take two halves. Look to see if a token exists in each half. If so, return true."""
+    first_half = two_halves[0]
+    second_half = two_halves[1]
+    stopwords_list = stopwords.words('english')
+
+    stopped_first_half = [word for word in first_half if word not in stopwords_list]
+    stopped_second_half = [word for word in second_half if word not in stopwords_list]
+    return bool(set(stopped_second_half) & set(stopped_second_half))
+
+def find_chiasmus_over_whole_collection(raw_text):
+    """Take in a raw text. Split it into lines-ish. And print out every line-ish that has chiasmus in it."""
+    raw_text = import_poem('antes.txt')
+    for line in raw_text:
+        line_halves = line_midpoint(line)
+        if find_chiasmus_in_line_using_simple_token_matching(line_halves):
+            print('=========')
+            print(line_halves)
+            print(line)
+
     pass
 
-# TODO: annotate the code in your own words
-# TODO: take an example of chiasmus and try to write out how you would define it. in computer terms
-# for example - end of sentence (or line). look x number of words before and after and see if they share a term in both places.
-# TODO: for next time, we will take one of those definitions and code it together as a function. 
+# TODO: Elise - annotate the code in your own words - again.
+# TODO: Elise - practice using it by importing it in the terminal.
+# TODO: Elise - maybe try to make a new function that does a thing.
+# TODO: Brandon - find a better way to turn the file into lines of poetry
+# TODO: Brandon - Double check why the chiasmus printing function isn't working
+
+# TO USE
+# in the same folder, open the interpreter.
+# $ python3
+# >>>
+# three less than signs shows you're in the interpreter.
+# import your file using the import method
+# >>> import analysis
+# The functions you write will be under analysis - 
+# >>> line_halves = analysis.line_midpoint(line)
+# if you change something, the terminal won't know about it. so you will need to reimport the library using importlib like so-
+# import importlib
+# importlib.reload(analysis)
+# you'll then need to remake any variables that might have changed
+# line_halves = analysis.line_midpoint(line)
