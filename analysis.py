@@ -100,3 +100,12 @@ def find_chiasmus_over_whole_collection(raw_text):
 # importlib.reload(analysis)
 # you'll then need to remake any variables that might have changed
 # line_halves = analysis.line_midpoint(line)
+
+
+# to run the chiasmus function:
+# import analysis
+# raw_text = analysis.import_poem('antes.txt')
+# results = analysis.find_chiasmus_over_whole_collection(raw_text)
+# for result in results:
+# print('=======')
+# print(result)
