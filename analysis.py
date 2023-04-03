@@ -63,19 +63,21 @@ def find_chiasmus_in_line_using_simple_token_matching(two_halves):
 
     stopped_first_half = [word for word in first_half if word not in stopwords_list]
     stopped_second_half = [word for word in second_half if word not in stopwords_list]
-    return bool(set(stopped_second_half) & set(stopped_second_half))
+    return bool(set(stopped_first_half) & set(stopped_second_half))
 
 def find_chiasmus_over_whole_collection(raw_text):
     """Take in a raw text. Split it into lines-ish. And print out every line-ish that has chiasmus in it."""
     raw_text = import_poem('antes.txt')
-    for line in raw_text:
+    raw_lines_ish = raw_text.split('\n')
+    results = []
+    for line in raw_lines_ish:
         line_halves = line_midpoint(line)
         if find_chiasmus_in_line_using_simple_token_matching(line_halves):
             print('=========')
             print(line_halves)
             print(line)
-
-    pass
+            results.append((line,line_halves))
+    return results
 
 # TODO: Elise - annotate the code in your own words - again.
 # TODO: Elise - practice using it by importing it in the terminal.
@@ -91,7 +93,7 @@ def find_chiasmus_over_whole_collection(raw_text):
 # import your file using the import method
 # >>> import analysis
 # The functions you write will be under analysis - 
-# raw_text = analysis.import_poem(antes.txt)
+# raw_text = analysis.import_poem('antes.txt')
 # >>> line_halves = analysis.line_midpoint(line)
 # if you change something, the terminal won't know about it. so you will need to reimport the library using importlib like so-
 # import importlib
