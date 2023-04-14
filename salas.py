@@ -8,6 +8,7 @@ class PoetryCollection(object):
         self.filename = fn
         self.raw_collection = self.import_collection()
         self.poems = self.convert_raw_text_to_poems()
+        # self.chiasmus_poems = ???? # for next time with Elise
 
     def import_collection(self):
         with open(self.filename, 'r') as fin:
@@ -29,8 +30,15 @@ class Poem(object):
         # what do we want the poem to have?
         # list it out
         self.text = raw_text
+        # self.text_without_punctuation
+        #self.text_without_stopwords
         # self.does_it_have_chiasmus?
         self.stanzas = self.convert_poems_into_stanzas()
+        self.chiasmus_lines = self.find_chiasmus_in_poem()
+        if len(self.chiasmus_lines) > 0:
+            self.has_chiasmus = True
+        else:
+            self.has_chiasmus = False
 
 
     def convert_poems_into_stanzas(self):
@@ -48,7 +56,6 @@ class Poem(object):
         half = int(length_of_line / 2)
         first_half = line_as_tokens[:half]
         second_half = line_as_tokens[half:]
-
         return (first_half, second_half)
 
     def find_chiasmus_in_line_using_simple_token_matching(self, two_halves):
@@ -67,7 +74,14 @@ class Poem(object):
         for line in raw_lines_ish:
             line_halves = self.line_midpoint(line)
             if self.find_chiasmus_in_line_using_simple_token_matching(line_halves):
-                print('=========')
+                results.append(line)
                 print(line)
-                results.append((line,line_halves))
+                # results.append((line,line_halves))
         return results
+
+# >>> import salas
+# >>> collection = salas.PoetryCollection('antes.txt')
+# >>> collection.poem
+
+# TODO Elise: take out frontmatter and epigraph; finish dividing poem; read cookbook chapter; annotate this new monstrosity; come up with a function; start making a list of adjectives and verbs (properties) for collection and poem. Do the template-y class example.
+# TODO: Brandon - finish this file conversion.
