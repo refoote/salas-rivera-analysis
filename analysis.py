@@ -94,13 +94,12 @@ def find_chiasmus_over_whole_collection(raw_text):
 # >>> import analysis
 # The functions you write will be under analysis - 
 # raw_text = analysis.import_poem('antes.txt')
-# >>> line_halves = analysis.line_midpoint(line)
+# >>> chiasmus = find_chiasmus_over_whole_collection(raw_text)
 # if you change something, the terminal won't know about it. so you will need to reimport the library using importlib like so-
 # import importlib
 # importlib.reload(analysis)
 # you'll then need to remake any variables that might have changed
 # line_halves = analysis.line_midpoint(line)
-
 
 # to run the chiasmus function:
 # import analysis
