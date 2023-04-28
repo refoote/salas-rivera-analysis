@@ -102,7 +102,6 @@ class Poem(object):
 # TODO: practice pulling your text in and exploring it using the terminal
 # TODO: upgrade your VS code to make sure GitHub works.
 # TODO: Elise: Take your adjectives and/or verbs and write them out in English/Spanish
-# TODO: Brandon - figure out why it is ingesting poems as characters and not words
 
 
 # def self.find_title()
