@@ -1,9 +1,10 @@
 import nltk
 from nltk.corpus import stopwords
+import string
 
 class PoetryCollection(object):
     # now create the blueprint for our text object
-    def __init__(self, fn):
+    def __init__(self, fn='antes_linebreak.txt'):
         # given a filename, store it
         self.filename = fn
         self.raw_collection = self.import_collection()
@@ -22,18 +23,27 @@ class PoetryCollection(object):
             poems.append(Poem(poem_text))
         return poems    
 
-    
+    def find_chiasmus_over_whole_collection(self):
+        for poem in self.poems:
+            if poem.has_chiasmus:
+                print('=========')
+                print(poem.title)
+                print(poem.chiasmus_lines)
+
 class Poem(object):
     """a poem blueprint"""
     def __init__(self, raw_text):
-        # self.title
         # what do we want the poem to have?
         # list it out
-        self.text = raw_text
-        # self.text_without_punctuation
+        self.raw_text = raw_text
+        punct = string.punctuation +'’'
+        self.raw_text_without_punctuation = ('').join([word for word in self.raw_text if word not in punct])
+        self.raw_stanzas = self.convert_poems_into_raw_stanzas()
+        self.title = self.raw_stanzas[0]
+        self.text = (' ').join(self.raw_stanzas[1:])
         #self.text_without_stopwords
-        # self.does_it_have_chiasmus?
-        self.stanzas = self.convert_poems_into_stanzas()
+        self.stanzas = [stanza.split('\n\n') for stanza in self.raw_stanzas[1:]]
+        self.lines = [item for sublist in self.stanzas for item in sublist]
         self.chiasmus_lines = self.find_chiasmus_in_poem()
         if len(self.chiasmus_lines) > 0:
             self.has_chiasmus = True
@@ -41,11 +51,13 @@ class Poem(object):
             self.has_chiasmus = False
 
 
-    def convert_poems_into_stanzas(self):
+    def convert_poems_into_raw_stanzas(self):
         """Take a poem and split it into stanzas"""
-        return self.text.split('\n\n\n')
+        # this version keeps in punctuation
+        # return self.raw_text.split('\n\n\n')
+        return self.raw_text_without_punctuation.split('\n\n\n')
     
-    def convert_stanzas_into_lines(self):
+    def process_raw_stanzas(self, stanzas):
         lines = [stanza.split('\n\n') for stanza in self.stanzas]
         return lines
 
@@ -69,9 +81,8 @@ class Poem(object):
         return bool(set(stopped_first_half) & set(stopped_second_half))
 
     def find_chiasmus_in_poem(self):
-        raw_lines_ish = self.text.split('\n')
         results = []
-        for line in raw_lines_ish:
+        for line in self.lines:
             line_halves = self.line_midpoint(line)
             if self.find_chiasmus_in_line_using_simple_token_matching(line_halves):
                 results.append(line)
@@ -81,7 +92,20 @@ class Poem(object):
 
 # >>> import salas
 # >>> collection = salas.PoetryCollection('antes.txt')
-# >>> collection.poem
+# >>> collection.poems
+# >>> collection.poems[0].find_chiasmus_in_poem()
 
-# TODO Elise: take out frontmatter and epigraph; finish dividing poem; read cookbook chapter; annotate this new monstrosity; come up with a function; start making a list of adjectives and verbs (properties) for collection and poem. Do the template-y class example.
-# TODO: Brandon - finish this file conversion.
+# TODO Elise: keep annotating this new monstrosity; start making a list of adjectives and verbs (properties) for collection and poem.
+# TODO Elise: edits to the text - the two pages with fancy font should be added in. and elsewhere. Decide if you want to change multiline titles. How do deal with multiple titles?
+# TODO: Elise: find out why we have an odd number of poems
+# TODO: practice pulling your text in and exploring it using the terminal
+# TODO: upgrade your VS code to make sure GitHub works.
+# TODO: Elise: Take your adjectives and/or verbs and write them out in English/Spanish
+# TODO: Brandon - figure out why it is ingesting poems as characters and not words
+
+
+# def self.find_title()
+   # """Find the text's title"""
+    # get the text
+    # get the first line
+    # that's the title
