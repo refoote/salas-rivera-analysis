@@ -91,9 +91,10 @@ class Poem(object):
         return results
 
 # >>> import salas
-# >>> collection = salas.PoetryCollection('antes.txt')
+# >>> collection = salas.PoetryCollection()
 # >>> collection.poems
 # >>> collection.poems[0].find_chiasmus_in_poem()
+# >>> collection.find_chiasmus_over_whole_collection()
 
 # TODO Elise: keep annotating this new monstrosity; start making a list of adjectives and verbs (properties) for collection and poem.
 # TODO Elise: edits to the text - the two pages with fancy font should be added in. and elsewhere. Decide if you want to change multiline titles. How do deal with multiple titles?
