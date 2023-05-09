@@ -177,9 +177,7 @@ tocan el suelo y duermes respirando.
 
 
 
-julia keleher confiesa que cree
-
-en el fin de la historia
+julia keleher confiesa que cree en el fin de la historia
 
 
 titá enfila niños y le da a cada uno una goma. dice:
@@ -265,12 +263,50 @@ para el que vende periódicos entre carriles.
 
 vuelven con el titular:
 
+PERDISTE 
+
+TU CASA 
+
+Y AHORA 
+
+DUERMES 
+
+EN UN 
+
+ALMACÉN 
+
+LLENO DE 
+
+SUEÑOS 
+
+EXPIRADOS
+
 
 se mojan con mi llantén de salitre.
 
 mis mahones son dos carriles donde mueren las iguanas.
 
 mi cara es un gran titular que grita:
+
+TUS REPTILES 
+
+FUERON A 
+
+SOFOCARSE EN 
+
+EL FRÍO 
+
+Y AHORA 
+
+DUERMES 
+
+SOBRE 
+
+DONACIONES 
+
+DE DESASTRES 
+
+EXPIRADOS
 
 
 
@@ -321,9 +357,8 @@ si te portas bien, nos harán estado.
 
 
 
-el poeta defiende el derecho al futuro
+el poeta defiende el derecho al futuro y demanda su redistribución inmediata
 
-y demanda su redistribución inmediata
 
 
 el derecho a ser piedra
@@ -733,9 +768,7 @@ no te liberó.
 
 
 
-la independencia
-
-(de puerto rico)
+la independencia (de puerto rico) (1)
 
 
 entré en un terror redondo, tierno y final.
@@ -919,9 +952,7 @@ en blanco.
 
 
 
-la independencia
-
-(de puerto rico)
+la independencia (de puerto rico) (2)
 
 
 ¿no te sentirás solito
@@ -1134,9 +1165,7 @@ con tanta libertad?
 
 
 
-la independencia
-
-(de puerto rico)
+la independencia (de puerto rico) (3)
 
 
 los enemigos afilan nuestra tristeza y la entierran
@@ -1256,9 +1285,7 @@ vivimos con tiempo robado.
 
 
 
-la independencia
-
-(de puerto rico)
+la independencia (de puerto rico) (4)
 
 
 un camino de migajas hasta la boca,
@@ -1357,9 +1384,7 @@ si no sabemos volver a casa.
 
 
 
-la independencia
-
-(de puerto rico)
+la independencia (de puerto rico) (5)
 
 
 ¿quién te dijo que no podía ser así,
@@ -1442,9 +1467,7 @@ déjalos que se vayan.
 
 
 
-la independencia
-
-(de puerto rico)
+la independencia (de puerto rico) (6)
 
 
 somos más fieros que la nieve derretida;
@@ -1598,9 +1621,7 @@ hermosura?
 
 
 
-la independencia
-
-(de puerto rico)
+la independencia (de puerto rico) (7)
 
 
 la independencia
@@ -1801,9 +1822,7 @@ dejaqueveas trepar un bosque y tocar el cielo.
 
 
 
-versos complejos
-
-para josé martí
+versos complejos para josé martí
 
 
 yo soy poeta arrancado
@@ -1972,14 +1991,22 @@ lejos de tanta muerte.
 soñamos que cruzamos un río con un brinco
 
 
+el futuro es una casa de espejos,
+
+y todos reflejan a neulisa alexa luciano ruiz.
+
+
 
 we dream we span a river in one stride
 
 
+the future is a house of mirrors,
 
-versos complejos
+all reflecting neulisa alexa luciano ruiz.
 
-para josé martí
+
+
+versos complejos para josé martí
 
 
 yo soy poeta arrancado
@@ -2194,6 +2221,7 @@ waitilyousee us lose all respect for the state;
 waitilyousee us climb a forest and touch the sky.
 
 
+
 the arc
 
 
@@ -2296,9 +2324,7 @@ sea of the poem, the future.
 
 
 
-the independence
-
-(of puerto rico)
+the independence (of puerto rico) (1)
 
 
 the independence
@@ -2349,9 +2375,7 @@ puerto rico
 
 
 
-the independence
-
-(of puerto rico)
+the independence (of puerto rico) (2)
 
 
 we are fiercer than melted snow;
@@ -2506,9 +2530,7 @@ beauty.
 
 
 
-the independence
-
-(of puerto rico)
+the independence (of puerto rico) (3)
 
 
 who told you it couldn’t be,
@@ -2589,9 +2611,7 @@ just leave them gone.
 
 
 
-the independence
-
-(of puerto rico)
+the independence (of puerto rico) (4)
 
 
 a path of crumbs up to the mouth,
@@ -2690,9 +2710,7 @@ if we forget our way back home.
 
 
 
-the independence
-
-(of puerto rico)
+the independence (of puerto rico) (5)
 
 
 our enemies sharpen our sadness and bury it
@@ -2813,9 +2831,7 @@ we live on stolen time.
 
 
 
-the independence
-
-(of puerto rico)
+the independence (of puerto rico) (6)
 
 
 won’t it be lonely
@@ -3024,9 +3040,7 @@ with all that freedom?
 
 
 
-the independence
-
-(of puerto rico)
+the independence (of puerto rico) (7)
 
 
 i entered a round, tender, and final terror.
@@ -3544,11 +3558,6 @@ of a far-off country.
 
 
 
-the poet defends his right to a future
-
-and demands its immediate redistribution
-
-
 the right to be stone
 
 
@@ -3618,6 +3627,10 @@ or love.
 
 
 
+the poet defends his right to a future and demands its immediate redistribution
+
+
+
 eleven truths and a lie
 
 
@@ -3679,6 +3692,24 @@ to the man selling papers between lanes.
 
 they return with the headline:
 
+YOU LOST 
+
+YOUR HOUSE 
+
+AND NOW 
+
+SLEEP 
+
+IN A 
+
+WAREHOUSE 
+
+FULL OF 
+
+EXPIRED 
+
+DREAMS 
+
 
 they get soaked with my saltpeter sobs.
 
@@ -3686,11 +3717,27 @@ my jeans are two lanes where iguanas come die.
 
 my face is a great headline that screams:
 
+YOUR REPTILES 
+
+LEFT TO 
+
+SUFFOCATE IN 
+
+THE COLD 
+
+AND NOW 
+
+YOU SLEEP ON 
+
+DONATIONS 
+
+FROM EXPIRED 
+
+STORMS
 
 
-julia keleher confesses she believes
 
-in the end of history
+julia keleher confesses she believes in the end of history
 
 
 titá lines up the children and gives each an eraser. she says,
