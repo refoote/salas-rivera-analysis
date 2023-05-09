@@ -42,7 +42,7 @@ class Poem(object):
         self.title = self.raw_stanzas[0]
         self.text = (' ').join(self.raw_stanzas[1:])
         #self.text_without_stopwords
-        self.stanzas = [stanza.split('\n\n') for stanza in self.raw_stanzas[1:]]
+        self.stanzas = [stanza.split('\n\n\n') for stanza in self.raw_stanzas[1:]]
         self.lines = [item for sublist in self.stanzas for item in sublist]
         self.chiasmus_lines = self.find_chiasmus_in_poem()
         if len(self.chiasmus_lines) > 0:
