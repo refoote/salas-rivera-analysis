@@ -86,6 +86,7 @@ class Poem(object):
 
     def assign_translation(self, poem_translation):
         self.translation = poem_translation
+        self.translation_title = self.translation.title
 
     def find_chiasmus_at_the_poem_level(self):
         """take the two poem halves and determine if there is chiasmus at the level of the poem's structure"""
