@@ -56,11 +56,10 @@ class Poem(object):
         self.raw_text_without_punctuation = ('').join([word for word in self.raw_text if word not in punct])
         self.raw_stanzas = self.convert_poems_into_raw_stanzas()
         self.title = self.raw_stanzas[0]
-        self.text = (' ').join(self.raw_stanzas[1:])
+        self.raw_text_as_stanzas = self.raw_stanzas[1:]
         #self.text_without_stopwords
-        self.stanzas = [stanza.split('\n\n\n') for stanza in self.raw_stanzas[1:]]
-        # TODO: Brandon - look at why it's not splitting into lines correctly yet
-        self.lines = [item for sublist in self.stanzas for item in sublist]
+        self.lines_as_stanzas = self.process_raw_stanzas()
+        self.lines = [item for sublist in self.lines_as_stanzas for item in sublist]
         self.number_of_lines = len(self.lines)
         self.poem_halves = self.find_poem_halves()
         self.first_half = self.poem_halves[0]
@@ -109,9 +108,9 @@ class Poem(object):
         # return self.raw_text.split('\n\n\n')
         return self.raw_text_without_punctuation.split('\n\n\n')
     
-    def process_raw_stanzas(self, stanzas):
-        lines = [stanza.split('\n\n') for stanza in self.stanzas]
-        return lines
+    def process_raw_stanzas(self):
+        lines_in_stanzas = [stanza.split('\n\n') for stanza in self.raw_text_as_stanzas]
+        return lines_in_stanzas
 
     def line_midpoint(self, line):
         """takes a line and divides it in half"""
