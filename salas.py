@@ -9,9 +9,19 @@ class PoetryCollection(object):
         self.filename = fn
         self.raw_collection = self.import_collection()
         self.poems = self.convert_raw_text_to_poems()
+        self.match_translations()
         # look at how to the matching
         # self.match_poem_with_sibling()
         # self.chiasmus_poems = ???? # for next time with Elise
+
+    def match_translations(self):
+        """Loop over poems and match indices with translations"""
+        num_poems = len(self.poems)
+        
+        for poem_index, poem in enumerate(self.poems):
+            translation_index = num_poems-poem_index
+            poem.assign_translation_index(translation_index)
+            poem.assign_translation(self.poems[translation_index-1])
 
     def import_collection(self):
         with open(self.filename, 'r') as fin:
@@ -71,6 +81,12 @@ class Poem(object):
         else:
             self.has_chiasmus = False
     
+    def assign_translation_index(self, translation_pos):
+        self.translation_index = translation_pos
+
+    def assign_translation(self, poem_translation):
+        self.translation = poem_translation
+
     def find_chiasmus_at_the_poem_level(self):
         """take the two poem halves and determine if there is chiasmus at the level of the poem's structure"""
         # take the two poem halves
@@ -161,7 +177,6 @@ class Poem(object):
 # TODO: Elise: Think a little more about collection level matching
 # TODO: Brandon: change some of the function names to nuance the type of chiasmus we're talking about. Right now we have internal to a poem the usual single word in a line. Next level is at the level of the poem structure. Next level would be the whole collection.
 # TODO: Brandon: do translation matching - identify a poem's translation / sibling
-# TODO: Brandon: take a look at why the lines in the stanzas haven't been splitting yet
 
 # def self.find_title()
    # """Find the text's title"""
