@@ -10,9 +10,6 @@ class PoetryCollection(object):
         self.raw_collection = self.import_collection()
         self.poems = self.convert_raw_text_to_poems()
         self.match_translations()
-        # look at how to the matching
-        # self.match_poem_with_sibling()
-        # self.chiasmus_poems = ???? # for next time with Elise
 
     def match_translations(self):
         """Loop over poems and match indices with translations"""
@@ -77,9 +74,9 @@ class Poem(object):
         self.poem_structure_chiasmus = self.find_chiasmus_at_the_poem_level()
         self.chiasmus_lines = self.find_chiasmus_in_poem()
         if len(self.chiasmus_lines) > 0:
-            self.has_chiasmus = True
+            self.has_line_level_chiasmus = True
         else:
-            self.has_chiasmus = False
+            self.has_line_level_chiasmus = False
     
     def assign_translation_index(self, translation_pos):
         self.translation_index = translation_pos
@@ -165,7 +162,7 @@ class Poem(object):
 # >>> collection = salas.PoetryCollection()
 # >>> collection.poems
 # >>> collection.poems[0].find_chiasmus_in_poem()
-# >>> collection.find_chiasmus_over_whole_collection()
+# >>> collection.find_line_level_chiasmus_over_whole_collection()
 
 # if you change something, reimport and remake the class
 # >>> import importlib
@@ -176,8 +173,8 @@ class Poem(object):
 # TODO: Elise: practice pulling your text in and exploring it using the terminal
 # TODO: Elise: Take your adjectives and/or verbs and write them out in English/Spanish
 # TODO: Elise: Think a little more about collection level matching
-# TODO: Brandon: change some of the function names to nuance the type of chiasmus we're talking about. Right now we have internal to a poem the usual single word in a line. Next level is at the level of the poem structure. Next level would be the whole collection.
-# TODO: Brandon: do translation matching - identify a poem's translation / sibling
+# TODO: Together: chiasmus over the whole collection? Using the 
+# TODO: Brandon: discuss translation matching - identify a poem's translation / sibling
 
 # def self.find_title()
    # """Find the text's title"""
