@@ -3,12 +3,25 @@ from nltk.corpus import stopwords
 from nltk.text import Text
 import string
 
-# class TreatAsOneText(object):
-#     def __init__(self, fn='antes_linebreak.txt'):
-#         self.filename = fn
-#         self.raw_text = self.import_collection()
-#         self.nltk_text = Text(nltk.word_tokenize())
-
+class TreatAsOneText(object):
+    def __init__(self, fn='antes_linebreak.txt'):
+        """
+        text = salas.TreatAsOneText()
+        text.make_the_plot
+        to change the words tracked you would modify WORDS_TO_PLOT below and reload like so.
+        importlib.reload(salas)
+        text = salas.TreatAsOneText()
+        text.make_the_plot
+        """
+        self.filename = fn
+        self.raw_text = self.import_collection()
+        self.nltk_text = Text(nltk.word_tokenize(self.raw_text))
+        #########
+        self.WORDS_TO_PLOT = ['puerto', 'rico', 'island', 'the']
+        #########
+        
+    def make_the_plot(self):
+        self.nltk_text.dispersion_plot(self.WORDS_TO_PLOT)
 
     def import_collection(self):
         with open(self.filename, 'r') as fin:
