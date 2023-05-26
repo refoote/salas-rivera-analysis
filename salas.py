@@ -11,7 +11,7 @@ class TreatAsOneText(object):
         to change the words tracked you would modify WORDS_TO_PLOT below and reload like so.
         importlib.reload(salas)
         text = salas.TreatAsOneText()
-        text.make_the_plot
+        text.make_the_plot()
         """
         self.filename = fn
         self.raw_text = self.import_collection()
