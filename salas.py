@@ -1,6 +1,19 @@
 import nltk
 from nltk.corpus import stopwords
+from nltk.text import Text
 import string
+
+# class TreatAsOneText(object):
+#     def __init__(self, fn='antes_linebreak.txt'):
+#         self.filename = fn
+#         self.raw_text = self.import_collection()
+#         self.nltk_text = Text(nltk.word_tokenize())
+
+
+    def import_collection(self):
+        with open(self.filename, 'r') as fin:
+            raw_text = fin.read()
+        return raw_text
 
 class PoetryCollection(object):
     # now create the blueprint for our text object
@@ -53,6 +66,13 @@ class PoetryCollection(object):
                 print('Second Half:')
                 print(poem.second_half)
 
+    def find_bilinear_chiasmus_over_whole_collection(self):
+        for poem in self.poems:
+            if poem.has_bilinear_chiasmus:
+                print('=====')
+                print(poem.title)
+                print(poem.bilinear_chiasmus_lines)
+
 class Poem(object):
     """a poem blueprint"""
     def __init__(self, raw_text):
@@ -77,7 +97,21 @@ class Poem(object):
             self.has_line_level_chiasmus = True
         else:
             self.has_line_level_chiasmus = False
-    
+        self.has_bilinear_chiasmus = False
+        self.find_bilinear_chiasmus()
+
+    def find_bilinear_chiasmus(self):
+        self.bilinear_chiasmus_lines = []
+        for line_index, line in enumerate(self.lines):
+            if line_index < len(self.lines)-1:
+                first_in_line_pair = line
+                second_in_line_pair = self.lines[line_index+1]
+                first_quarter, second_quarter = self.line_midpoint(first_in_line_pair)
+                third_quarter, fourth_quarter = self.line_midpoint(second_in_line_pair)
+                if self.find_chiasmus_in_line_using_simple_token_matching((first_quarter, fourth_quarter)) or self.find_chiasmus_in_line_using_simple_token_matching((second_quarter, third_quarter)):
+                    self.has_bilinear_chiasmus = True
+                    self.bilinear_chiasmus_lines.append([first_in_line_pair,second_in_line_pair])
+
     def assign_translation_index(self, translation_pos):
         self.translation_index = translation_pos
 
@@ -169,12 +203,11 @@ class Poem(object):
 # >>> importlib.reload(salas)
 # >>> collection = salas.PoetryCollection()
 
-# TODO Elise: keep annotating this new monstrosity; start making a list of adjectives and verbs (properties) for collection and poem.
+# TODO Elise: start making a list of adjectives and verbs (properties) for collection and poem.
 # TODO: Elise: practice pulling your text in and exploring it using the terminal
 # TODO: Elise: Take your adjectives and/or verbs and write them out in English/Spanish
-# TODO: Elise: Think a little more about collection level matching
-# TODO: Together: chiasmus over the whole collection? Using the 
-# TODO: Brandon: discuss translation matching - identify a poem's translation / sibling
+# TODO: think about the things you need for the article - do you have the graphs you need.
+# TODO: Brandon: finish up the class to get a frequency distribution across the whole text
 
 # def self.find_title()
    # """Find the text's title"""
