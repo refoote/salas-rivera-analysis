@@ -2,6 +2,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.text import Text
 import string
+import pylab
 
 class TreatAsOneText(object):
     def __init__(self, fn='antes_linebreak.txt'):
@@ -23,6 +24,7 @@ class TreatAsOneText(object):
         
     def make_the_plot(self):
         self.nltk_text.dispersion_plot(self.WORDS_TO_PLOT)
+        pylab.show()
 
     def import_collection(self):
         with open(self.filename, 'r') as fin:
