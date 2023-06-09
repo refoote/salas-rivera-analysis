@@ -3,7 +3,7 @@ import nltk
 from nltk.corpus import stopwords
 from numpy import append
 # get your data 
-filename = "antes.txt"
+filename = "antes_linebreak.txt"
 with open(filename, 'r') as fin:
     raw_text = fin.read()
 

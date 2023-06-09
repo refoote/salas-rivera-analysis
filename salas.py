@@ -6,8 +6,9 @@ import string
 class TreatAsOneText(object):
     def __init__(self, fn='antes_linebreak.txt'):
         """
+        import salas
         text = salas.TreatAsOneText()
-        text.make_the_plot
+        text.make_the_plot()
         to change the words tracked you would modify WORDS_TO_PLOT below and reload like so.
         importlib.reload(salas)
         text = salas.TreatAsOneText()
@@ -64,7 +65,7 @@ class PoetryCollection(object):
 
     def find_line_level_chiasmus_over_whole_collection(self):
         for poem in self.poems:
-            if poem.has_chiasmus:
+            if poem.has_line_level_chiasmus:
                 print('=========')
                 print(poem.title)
                 print(poem.chiasmus_lines)
