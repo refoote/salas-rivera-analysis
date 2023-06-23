@@ -36,7 +36,7 @@ class TreatAsOneText(object):
     
     def dispersion_hack(self, text, words, ignore_case=False, title="Lexical Dispersion Plot"):
         """
-        Generate a lexical dispersion plot. (a hacked version of dispersion plot from nltk because their version wasn't working)
+        Generate a lexical dispersion plot.
 
         :param text: The source text
         :type text: list(str) or iter(str)
@@ -58,7 +58,7 @@ class TreatAsOneText(object):
 
         word2y = {
             word.casefold() if ignore_case else word: y
-            for y, word in enumerate(words)
+            for y, word in enumerate(reversed(words))
         }
         xs, ys = [], []
         for x, token in enumerate(text):
@@ -67,6 +67,8 @@ class TreatAsOneText(object):
             if y is not None:
                 xs.append(x)
                 ys.append(y)
+
+        words = words[::-1]
 
         _, ax = plt.subplots()
         ax.plot(xs, ys, "|")
