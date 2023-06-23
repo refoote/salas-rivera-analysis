@@ -3,6 +3,7 @@ from nltk.corpus import stopwords
 from nltk.text import Text
 import string
 import pylab
+from matplotlib import pyplot as plt
 
 class TreatAsOneText(object):
     def __init__(self, fn='antes_linebreak.txt'):
@@ -17,20 +18,63 @@ class TreatAsOneText(object):
         """
         self.filename = fn
         self.raw_text = self.import_collection()
-        self.cleaned_text = [word.lower() for word in self.raw_text]
-        self.nltk_text = Text(nltk.word_tokenize(self.raw_text))
+        self.raw_tokens = nltk.word_tokenize(self.raw_text)
+        self.cleaned_text = [word.lower() for word in self.raw_tokens]
+        self.nltk_text = Text(self.cleaned_text)
         #########
-        self.WORDS_TO_PLOT = ['puerto', 'rico', 'island', 'the']
+        self.WORDS_TO_PLOT = ['puerto', 'rico', 'island', 'madness']
         #########
         
     def make_the_plot(self):
-        self.nltk_text.dispersion_plot(self.WORDS_TO_PLOT)
+        self.dispersion_hack(self.cleaned_text,self.WORDS_TO_PLOT)
         pylab.show()
 
     def import_collection(self):
         with open(self.filename, 'r') as fin:
             raw_text = fin.read()
         return raw_text
+    
+    def dispersion_hack(self, text, words, ignore_case=False, title="Lexical Dispersion Plot"):
+        """
+        Generate a lexical dispersion plot. (a hacked version of dispersion plot from nltk because their version wasn't working)
+
+        :param text: The source text
+        :type text: list(str) or iter(str)
+        :param words: The target words
+        :type words: list of str
+        :param ignore_case: flag to set if case should be ignored when searching text
+        :type ignore_case: bool
+        :return: a matplotlib Axes object that may still be modified before plotting
+        :rtype: Axes
+        """
+
+        try:
+            import matplotlib.pyplot as plt
+        except ImportError as e:
+            raise ImportError(
+                "The plot function requires matplotlib to be installed. "
+                "See https://matplotlib.org/"
+            ) from e
+
+        word2y = {
+            word.casefold() if ignore_case else word: y
+            for y, word in enumerate(words)
+        }
+        xs, ys = [], []
+        for x, token in enumerate(text):
+            token = token.casefold() if ignore_case else token
+            y = word2y.get(token)
+            if y is not None:
+                xs.append(x)
+                ys.append(y)
+
+        _, ax = plt.subplots()
+        ax.plot(xs, ys, "|")
+        ax.set_yticks(list(range(len(words))), words, color="C0")
+        ax.set_ylim(-1, len(words))
+        ax.set_title(title)
+        ax.set_xlabel("Word Offset")
+        return ax
 
 class PoetryCollection(object):
     # now create the blueprint for our text object
