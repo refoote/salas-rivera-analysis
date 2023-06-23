@@ -19,7 +19,7 @@ class TreatAsOneText(object):
         self.raw_text = self.import_collection()
         self.nltk_text = Text(nltk.word_tokenize(self.raw_text))
         #########
-        self.WORDS_TO_PLOT = ['puerto', 'rico', 'island', 'the']
+        self.WORDS_TO_PLOT = ['puerto', 'rico', 'island', 'madness']
         #########
         
     def make_the_plot(self):
@@ -230,3 +230,4 @@ class Poem(object):
     # get the text
     # get the first line
     # that's the title
+  
