@@ -20,7 +20,7 @@ class TreatAsOneText(object):
         self.cleaned_text = [word.lower() for word in self.raw_text]
         self.nltk_text = Text(nltk.word_tokenize(self.raw_text))
         #########
-        self.WORDS_TO_PLOT = ['puerto', 'rico', 'island', 'madness']
+        self.WORDS_TO_PLOT = ['puerto', 'rico', 'isla', 'island']
         #########
         
     def make_the_plot(self):
