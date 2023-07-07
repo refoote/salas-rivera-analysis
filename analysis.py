@@ -7,6 +7,8 @@ filename = "antes_linebreak.txt"
 with open(filename, 'r') as fin:
     raw_text = fin.read()
 
+#look a test file
+
 # do something with it
 num_characters = len(raw_text)
 # split that long string on spaces
