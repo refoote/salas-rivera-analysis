@@ -7,7 +7,7 @@ filename = "antes_linebreak.txt"
 with open(filename, 'r') as fin:
     raw_text = fin.read()
 
-#look a test file
+#look another test
 
 # do something with it
 num_characters = len(raw_text)
