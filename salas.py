@@ -113,28 +113,48 @@ class PoetryCollection(object):
         return poems    
 
     def find_line_level_chiasmus_over_whole_collection(self):
-        for poem in self.poems:
-            if poem.has_line_level_chiasmus:
-                print('=========')
-                print(poem.title)
-                print(poem.chiasmus_lines)
+        with open ('results/line_level.txt', 'w') as fout:
+            for poem in self.poems:
+                if poem.has_line_level_chiasmus:
+                    print('=========')
+                    fout.write('======' + '\n')
+                    print(poem.title)
+                    fout.write(poem.title + '\n')
+                    print(poem.chiasmus_lines)
+                    fout.write(str(poem.chiasmus_lines) + '\n')
 
     def find_poem_level_chiasmus_over_whole_collection(self):
-        for poem in self.poems:
-            if poem.poem_structure_chiasmus:
-                print('=======')
-                print('Poem title: ' + poem.title)
-                print('First Half:')
-                print(poem.first_half)
-                print('Second Half:')
-                print(poem.second_half)
+        with open ('results/poem_level.txt', 'w') as fout:
+            for poem in self.poems:
+                if poem.poem_structure_chiasmus:
+                    print('=======')
+                    print('Poem title: ' + poem.title)
+                    print('First Half:')
+                    print(poem.first_half)
+                    print('Second Half:')
+                    print(poem.second_half)
+                    fout.write('=====\n')
+                    fout.write('Poem title: ' + poem.title + '\n')
+                    fout.write('First Half:' + '\n')
+                    fout.write(str(poem.first_half) + '\n')
+                    fout.write('Second Half:' + '\n')
+                    fout.write(str(poem.second_half) + '\n')
 
     def find_bilinear_chiasmus_over_whole_collection(self):
-        for poem in self.poems:
-            if poem.has_bilinear_chiasmus:
-                print('=====')
-                print(poem.title)
-                print(poem.bilinear_chiasmus_lines)
+        with open ('results/bilinear.txt', 'w') as fout:
+            for poem in self.poems:
+                if poem.has_bilinear_chiasmus:
+                    print('=====')
+                    print(poem.title)
+                    print(poem.bilinear_chiasmus_lines)
+                    fout.write('=====\n')
+                    fout.write(poem.title + '\n')
+                    for line in poem.bilinear_chiasmus_lines:
+                        fout.write(str(line) + '\n')
+    
+    def output_to_file(self, filename, stuff_to_write):
+        with open(filename, 'w') as fout:
+            fout.write(stuff_to_write)
 
 class Poem(object):
     """a poem blueprint"""
